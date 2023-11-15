@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerofly Airline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('wallpaperflare.com_wallpaper.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            background-color: rgba(51, 51, 51, 0.8); /* Dark Gray Background with 80% transparency */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* White Background with 90% transparency */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .flight-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background-color: rgba(249, 249, 249, 0.9); /* Light Gray Background with 90% transparency */
+        }
+        
+
+        button {
+            background-color: rgba(100, 186, 210, 0.8); /* Darker Green Background with 80% transparency on hover */
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(69, 128, 160, 119, 160);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #fbf9ef;">Aerofly Airline</h1> <!-- Yellow Title -->
+    </header>
+    
+    <section>
+        <!-- Flight Search Results -->
+        <div id="searchResults">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </section>
+
+    <script>
+        // Placeholder data for demonstration purposes
+        const searchResultsData = [
+            { date: '2023-12-01', class: 'Economy', departureTime: '08:00 AM', arrivalTime: '10:00 AM', arrivalPlace: 'New York' },
+            { date: '2023-12-02', class: 'Business', departureTime: '10:30 AM', arrivalTime: '01:30 PM', arrivalPlace: 'Los Angeles' },
+            { date: '2023-12-03', class: 'First Class', departureTime: '01:45 PM', arrivalTime: '04:30 PM', arrivalPlace: 'Chicago' },
+        ];
+
+        // Function to display search results dynamically
+        function displaySearchResults() {
+            const searchResultsContainer = document.getElementById('searchResults');
+
+            searchResultsData.forEach(result => {
+                const flightCard = document.createElement('div');
+                flightCard.classList.add('flight-card');
+
+                flightCard.innerHTML = `
+                    <p>Date: ${result.date}</p>
+                    <p>Class: ${result.class}</p>
+                    <p>Departure Time: ${result.departureTime}</p>
+                    <p>Arrival Time: ${result.arrivalTime}</p>
+                    <p>Arrival Place: ${result.arrivalPlace}</p>
+                    <button onclick="reserveFlight('${result.date}', '${result.class}', '${result.departureTime}', '${result.arrivalTime}', '${result.arrivalPlace}')">
+                        Reserve
+                    </button>
+                `;
+
+                searchResultsContainer.appendChild(flightCard);
+            });
+        }
+
+        // Placeholder function for reserving a flight
+        function reserveFlight(date, flightClass, departureTime, arrivalTime, arrivalPlace) {
+            alert(`Flight reserved on ${date} (${flightClass}) from ${departureTime} to ${arrivalTime} arriving at ${arrivalPlace}`);
+            // Implement actual reservation logic here
+        }
+
+        // Display search results on page load (for demonstration purposes)
+        displaySearchResults();
+    </script>
+</body>
+</html>
